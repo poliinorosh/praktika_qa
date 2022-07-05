@@ -74,14 +74,6 @@ async function redLog(str){
 
   await page.reload()
   
-
-  await page.reload()
-  await page.reload()
-  await page.reload()
-  await page.reload()
-  
-
-
 //Вводим в поле "Поиск" художника
 
   for (let i=1; i<12; i++){
