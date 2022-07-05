@@ -12,6 +12,7 @@ async function redLog(str){
   console.log("\x1b[41m%s\x1b[0m", str)
 }
 
+
 (async () => {
   const browser = await puppeteer.launch({headless: false})
   const page = await browser.newPage()
@@ -126,7 +127,7 @@ await delay(1000)
     redLog('Нет в корзине')
   }
 
-    fs.writeFileSync('test_str.json', JSON.stringify(artists));
+    // fs.writeFileSync('test_str.json', JSON.stringify(artists));
 
 
   await browser.close()
