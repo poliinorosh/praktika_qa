@@ -27,6 +27,11 @@ async function redLog(str){
   const count=countText.length
   console.log (count)
 
+//   fs.writeFileSync('test_str.txt', JSON.stringify(artists));
+//   const dataArray = JSON.parse(fs.readFileSync('./test_str.json','utf8'))
+
+
+  
   //Данные художников
   for (var i=1; i < count; i++) {
     let element=await page.waitForXPath("//div[text()='Художники']/..//li["+i+"]//a[text()]",{timeout:500})
@@ -36,18 +41,27 @@ async function redLog(str){
         try { 
           let value_edit = value.replace(', LegacyArt', '')
           artists.push(value_edit)
-          console.log(i, value_edit)
         } catch {
-          let value_edit = value.replace(' , LegacyArt', '')
+            let value_edit = value.replace(' , LegacyArt', '')
           artists.push(value_edit)
-          console.log(i, value_edit)
         }
     } catch {
         let value_edit = value.replace('', '')
         artists.push(value_edit)
-        console.log(i, value_edit)
     }
+
+
+    // console.log(text_txt)
+    fs.writeFileSync('test_str.txt', artists.toString());
+    
 }
+    
+    const dataArray = fs.readFileSync('./test_str.txt', {encoding:'utf8', flag:'r'});
+    console.log(dataArray)
+
+
+    await delay (1000)
+
 
 //Пролистывание до картины
 
@@ -127,7 +141,7 @@ await delay(1000)
     redLog('Нет в корзине')
   }
 
-    // fs.writeFileSync('test_str.json', JSON.stringify(artists));
+    // fs.writeFileSync('test_str.txt', JSON.stringify(artists));
 
 
   await browser.close()
