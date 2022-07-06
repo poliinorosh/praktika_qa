@@ -109,14 +109,14 @@ async function redLog(str){
 //   const handle=await page.waitForXPath("//a[contains(text(),'+7 (800) 201')]")
 //   await handle.hover()
 
-const handle=await page.waitForXPath("//a[contains(text(),'+7 (800) 201')]")
-await handle.hover()
-await page.mouse.click(1034,80,{clickCount:3})
-await page.keyboard.type("Ван Гог")
-await delay(1000)
-await page.mouse.click(1034,80,{clickCount:3})
-await page.keyboard.type("Муха Альфонс")
-await delay(1000)
+  const handle=await page.waitForXPath("//a[contains(text(),'+7 (800) 201')]")
+  await handle.hover()
+  await page.mouse.click(1034,80,{clickCount:3})
+  await page.keyboard.type("Ван Гог")
+  await delay(1000)
+  await page.mouse.click(1034,80,{clickCount:3})
+  await page.keyboard.type("Муха Альфонс")
+  await delay(1000)
 
   await page.keyboard.type(artists[22])
 
@@ -125,8 +125,6 @@ await delay(1000)
   }
   await page.keyboard.press("Enter")
   await delay(1000)
-
-
 
   await page.reload()
   await(await page.waitForXPath("//a[@href='/emarket/cart/']")).click()
